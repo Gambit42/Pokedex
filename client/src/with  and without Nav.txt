@@ -1,0 +1,8 @@
+ <Routes>
+        <Route element={<WithoutNav />}>
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
+        <Route element={<WithNav />}>
+          <Route path="/=example" element={<Example />} />
+        </Route>
+      </Routes>
