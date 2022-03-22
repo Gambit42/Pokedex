@@ -32,7 +32,7 @@ const Navbar = () => {
           }}
         >
           <img src={Pokeball} alt="pokeball" className="w-8 h-8 mr-1" />
-          <h1 className="font-bold text-md sm:text-lg">PokeDex</h1>
+          <h1 className="font-bold text-md sm:text-lg">Pokédex</h1>
         </div>
         <div className="flex flex-row items-center bg-stone-50 rounded p-1 border">
           <MdOutlineSearch
