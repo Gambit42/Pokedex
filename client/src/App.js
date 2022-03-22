@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Pokemon from "./pages/Pokemon";
@@ -10,30 +10,9 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={"loading"}>
-              <Home />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/pokemon/:pokemon"
-          element={
-            <Suspense fallback={"loading"}>
-              <Pokemon />
-            </Suspense>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={"loading"}>
-              <Error />
-            </Suspense>
-          }
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/pokemon/:pokemonName" element={<Pokemon />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </Router>
   );

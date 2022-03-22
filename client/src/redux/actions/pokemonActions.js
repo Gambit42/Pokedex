@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchPokemonList = (page) => async (dispatch) => {
-  const perPage = 15;
+  const perPage = 20;
   const offset = page * perPage - perPage;
 
   dispatch({
@@ -11,7 +11,6 @@ export const fetchPokemonList = (page) => async (dispatch) => {
   axios
     .get(`https://pokeapi.co/api/v2/pokemon?limit=${perPage}&offset=${offset}`)
     .then((res) => {
-      console.log(res.data);
       dispatch({
         type: "POKEMON_LIST_SUCCESS",
         payload: res.data,
@@ -21,6 +20,28 @@ export const fetchPokemonList = (page) => async (dispatch) => {
       console.log(err.message);
       dispatch({
         type: "POKEMON_LIST_FAIL",
+      });
+    });
+};
+
+export const fetchPokemon = (pokemon) => async (dispatch) => {
+  dispatch({
+    type: "POKEMON_LOADING",
+  });
+
+  axios
+    .get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+    .then((res) => {
+      dispatch({
+        type: "POKEMON_SUCCESS",
+        payload: res.data,
+        pokemon: pokemon,
+      });
+    })
+    .catch((err) => {
+      console.log(err.message);
+      dispatch({
+        type: "POKEMON_FAIL",
       });
     });
 };
