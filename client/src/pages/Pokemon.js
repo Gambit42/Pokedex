@@ -11,13 +11,17 @@ const Pokemon = () => {
   const dispatch = useDispatch();
   const { pokemonName } = useParams();
   const pokemon = useSelector((state) => state.pokemon);
-  TabTitle(pokemonName);
+
+  const handleTitle = () => {
+    return pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+  };
+  TabTitle(handleTitle());
 
   useEffect(() => {
     dispatch(fetchPokemon(pokemonName));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pokemonName]);
+  }, []);
 
   const showData = () => {
     if (pokemon.loading) {
@@ -29,11 +33,11 @@ const Pokemon = () => {
     }
 
     if (pokemon.errorMessage !== "") {
-      return <p className="pt-16">{pokemon.errorMessage}</p>;
+      return <p className="pt-16 bg-stone-50">{pokemon.errorMessage}</p>;
     }
   };
 
-  return <div className="py-4 bg-stone-50 px-4">{showData()}</div>;
+  return <div className="py-4 bg-stone-50 px-4 min-h-screen">{showData()}</div>;
 };
 
 export default Pokemon;

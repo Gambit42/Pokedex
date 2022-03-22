@@ -10,7 +10,6 @@ const Pagination = ({ fetchData }) => {
       <ReactPaginate
         pageCount={Math.ceil(pokemonList.count / 20)}
         pageRangeDisplayed={3}
-        hideFirstLastPages={true}
         marginPagesDisplayed={0}
         onPageChange={(data) => fetchData(data.selected + 1)}
         activeClassName="bg-red-600 text-white"

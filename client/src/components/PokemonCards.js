@@ -34,14 +34,14 @@ const PokemonCards = ({ pokemonURL }) => {
 
   return (
     <div
-      className={`shadow-lg flex flex-col items-center py-2 rounded cursor-pointer font-roboto`}
+      className={`shadow-lg flex flex-col items-center rounded cursor-pointer font-roboto h-60`}
       key={pokemon.name}
       onClick={() => {
         navigate(`/pokemon/${pokemon.name}`);
       }}
     >
       <div
-        className="w-full flex justify-center items-center py-5 rounded-t"
+        className="w-full flex justify-center items-center py-5 rounded-t h-40"
         style={{ backgroundColor: pokemonType[pokemon.type] }}
       >
         {pokemon.image != null ? (
@@ -55,11 +55,11 @@ const PokemonCards = ({ pokemonURL }) => {
           <img src={Pokeball} alt="not found pokemon" className="w-28 h-28" />
         )}
       </div>
-      <div className="flex flex-row items-center">
-        <h1 className="first-letter:uppercase py-5 font-medium mr-2">
+      <div className="flex flex-row items-center w-full justify-center h-20">
+        <h1 className="first-letter:uppercase font-medium mr-2">
           {pokemon.name}
         </h1>
-        <h1 className="first-letter:uppercase py-5 text-gray-700">
+        <h1 className="first-letter:uppercase00000000000000000 text-gray-700">
           {`#${pokemon.id}`}
         </h1>
       </div>
